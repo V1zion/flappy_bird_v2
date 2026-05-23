@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dqucsoklf3epi"]
+
+[ext_resource type="Texture2D" uid="uid://ceybvqdtl0f1b" path="res://Assets/flappyBackground.png" id="1_afu5b"]
+
+[node name="ClassicLevel" type="Node2D" unique_id=1635082428]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1112029302]
+position = Vector2(960, 310)
+texture = ExtResource("1_afu5b")
