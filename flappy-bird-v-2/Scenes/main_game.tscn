@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ecmhw2t2gw1l" path="res://Scripts/Global.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://dqucsoklf3epi" path="res://Scenes/classic_level.tscn" id="1_pu3va"]
+[ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://player.tscn" id="2_0e3vx"]
 
 [node name="MainGame" type="Node" unique_id=1678402600]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=526291792]
-offset = Vector2(960, 310)
 
 [node name="World" type="Node2D" parent="." unique_id=960379452]
 
@@ -15,6 +15,8 @@ offset = Vector2(960, 310)
 [node name="ClassicLevel" parent="World/Levels" unique_id=1635082428 instance=ExtResource("1_pu3va")]
 
 [node name="Entities" type="Node2D" parent="World" unique_id=1798272315]
+
+[node name="CharacterBody2D" parent="World/Entities" unique_id=1446843761 instance=ExtResource("2_0e3vx")]
 
 [node name="Systems" type="Node" parent="." unique_id=405304241]
 

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dijfum4w2pa4p"]
+
+[ext_resource type="Script" uid="uid://bfr8imx42i0l1" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dxtj1o6ag0yhp" path="res://Assets/flappy_player.png" id="2_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]
+radius = 29.017237
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1446843761]
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=198919004]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=763570172]
+shape = SubResource("CircleShape2D_hqtel")
