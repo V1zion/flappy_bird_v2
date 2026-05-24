@@ -21,11 +21,15 @@
 
 [node name="Systems" type="Node" parent="." unique_id=405304241]
 
-[node name="GameManager" type="Node" parent="Systems" unique_id=1194523480]
+[node name="GameManager" type="Node" parent="Systems" unique_id=1194523480 node_paths=PackedStringArray("pipe_spawner")]
 script = ExtResource("3_6j5ir")
+pipe_spawner = NodePath("../PipeSpawner")
 
 [node name="Global" type="Node" parent="Systems" unique_id=1982463725]
 script = ExtResource("1_l756w")
+
+[node name="PipeSpawner" type="Timer" parent="Systems" unique_id=1964214172]
+wait_time = 1.5
 
 [node name="HudCanvasLayer" type="CanvasLayer" parent="." unique_id=669520620]
 
@@ -42,3 +46,5 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="timeout" from="Systems/PipeSpawner" to="Systems/GameManager" method="_on_pipe_spawner_timeout"]

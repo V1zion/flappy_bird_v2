@@ -7,11 +7,11 @@ size = Vector2(1920, 216)
 
 [node name="ClassicLevel" type="Node2D" unique_id=1635082428]
 
+[node name="Background" type="Sprite2D" parent="." unique_id=1112029302]
+texture = ExtResource("1_167pb")
+
 [node name="Ground" type="StaticBody2D" parent="." unique_id=2041197214]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1763441597]
 position = Vector2(0, 432)
 shape = SubResource("RectangleShape2D_167pb")
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1112029302]
-texture = ExtResource("1_167pb")

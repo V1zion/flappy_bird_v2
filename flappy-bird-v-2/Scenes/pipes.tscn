@@ -10,13 +10,14 @@ size = Vector2(16, 190)
 size = Vector2(16, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhra5"]
-size = Vector2(6, 132)
+size = Vector2(27, 430)
 
 [node name="pipes" type="Node2D" unique_id=1783413979 groups=["pipes"]]
 script = ExtResource("1_7ktcp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=259803908]
-position = Vector2(0, -150)
+position = Vector2(0, -500)
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=106346694]
 texture = ExtResource("1_uhra5")
@@ -25,7 +26,8 @@ texture = ExtResource("1_uhra5")
 shape = SubResource("RectangleShape2D_7ktcp")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=561473335]
-position = Vector2(0, 150)
+position = Vector2(0, 500)
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1641726194]
 texture = ExtResource("1_uhra5")
@@ -36,5 +38,5 @@ shape = SubResource("RectangleShape2D_ws3sl")
 [node name="ScoreArea" type="Area2D" parent="." unique_id=1493778339]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1710348562]
-position = Vector2(14, 0)
+position = Vector2(45.5, 0)
 shape = SubResource("RectangleShape2D_uhra5")
