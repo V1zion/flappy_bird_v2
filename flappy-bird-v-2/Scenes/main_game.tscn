@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ecmhw2t2gw1l" path="res://Scripts/Global.gd" id="1_l756w"]
 [ext_resource type="PackedScene" uid="uid://dqucsoklf3epi" path="res://Scenes/classic_level.tscn" id="1_pu3va"]
-[ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://player.tscn" id="2_0e3vx"]
+[ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://Scenes/player.tscn" id="2_0e3vx"]
+[ext_resource type="Script" uid="uid://dkpcf4m74q05b" path="res://Scripts/game_manager.gd" id="3_6j5ir"]
 
 [node name="MainGame" type="Node" unique_id=1678402600]
 
@@ -21,6 +22,7 @@
 [node name="Systems" type="Node" parent="." unique_id=405304241]
 
 [node name="GameManager" type="Node" parent="Systems" unique_id=1194523480]
+script = ExtResource("3_6j5ir")
 
 [node name="Global" type="Node" parent="Systems" unique_id=1982463725]
 script = ExtResource("1_l756w")

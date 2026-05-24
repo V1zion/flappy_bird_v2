@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dijfum4w2pa4p"]
 
-[ext_resource type="Script" uid="uid://bfr8imx42i0l1" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://bfr8imx42i0l1" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://dxtj1o6ag0yhp" path="res://Assets/flappy_player.png" id="2_i3pqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqtel"]

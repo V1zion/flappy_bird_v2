@@ -14,6 +14,10 @@ config/name="FlappyBirdV2"
 run/main_scene="uid://dhy26d4oih5a2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+Global="*uid://ecmhw2t2gw1l"
+
 [input]
 
 jump={
