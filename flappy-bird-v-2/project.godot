@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 
 Global="*uid://ecmhw2t2gw1l"
 
+[global_group]
+
+pipes=""
+
 [input]
 
 jump={

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dgea6ddglcp6c"]
+
+[ext_resource type="Script" uid="uid://ct8d51hethp7l" path="res://Scenes/pipe_behaviour.gd" id="1_7ktcp"]
+[ext_resource type="Texture2D" uid="uid://d13ovog0lurjg" path="res://Assets/pipe-sprite.png" id="1_uhra5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ktcp"]
+size = Vector2(16, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws3sl"]
+size = Vector2(16, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhra5"]
+size = Vector2(6, 132)
+
+[node name="pipes" type="Node2D" unique_id=1783413979 groups=["pipes"]]
+script = ExtResource("1_7ktcp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=259803908]
+position = Vector2(0, -150)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=106346694]
+texture = ExtResource("1_uhra5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1638316066]
+shape = SubResource("RectangleShape2D_7ktcp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=561473335]
+position = Vector2(0, 150)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1641726194]
+texture = ExtResource("1_uhra5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1472123270]
+shape = SubResource("RectangleShape2D_ws3sl")
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=1493778339]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1710348562]
+position = Vector2(14, 0)
+shape = SubResource("RectangleShape2D_uhra5")
