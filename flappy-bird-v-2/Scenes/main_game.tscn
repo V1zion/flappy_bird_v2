@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dqucsoklf3epi" path="res://Scenes/classic_level.tscn" id="1_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://Scenes/player.tscn" id="2_0e3vx"]
 [ext_resource type="Script" uid="uid://dkpcf4m74q05b" path="res://Scripts/game_manager.gd" id="3_6j5ir"]
+[ext_resource type="Script" uid="uid://caa0slgdmtehf" path="res://Scenes/hud.gd" id="5_mgc0q"]
 
 [node name="MainGame" type="Node" unique_id=1678402600]
 
@@ -32,12 +33,28 @@ script = ExtResource("1_l756w")
 wait_time = 1.5
 
 [node name="HudCanvasLayer" type="CanvasLayer" parent="." unique_id=669520620]
+offset = Vector2(0, 40)
+transform = Transform2D(1, 0, 0, 1, 0, 40)
+script = ExtResource("5_mgc0q")
 
 [node name="HudRoot" type="Control" parent="HudCanvasLayer" unique_id=826687648]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HudCanvasLayer/HudRoot" unique_id=1011010948]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 65
+text = "SCORE"
 
 [node name="PauseCanvasLayer" type="CanvasLayer" parent="." unique_id=617157378]
 

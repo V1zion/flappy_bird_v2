@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY : int = -500
-const start_pos : Vector2 = Vector2(0, 0)
+const start_pos : Vector2 = Vector2(-400, 0)
+
+func reset():
+	position = start_pos
 
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta

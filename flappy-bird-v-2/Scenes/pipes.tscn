@@ -15,7 +15,7 @@ size = Vector2(27, 430)
 [node name="pipes" type="Node2D" unique_id=1783413979 groups=["pipes"]]
 script = ExtResource("1_7ktcp")
 
-[node name="UpperPipe" type="StaticBody2D" parent="." unique_id=259803908]
+[node name="UpperPipe" type="Area2D" parent="." unique_id=376054848]
 position = Vector2(0, -550)
 scale = Vector2(4, 4)
 
@@ -25,7 +25,7 @@ texture = ExtResource("1_uhra5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperPipe" unique_id=1638316066]
 shape = SubResource("RectangleShape2D_7ktcp")
 
-[node name="LowerPipe" type="StaticBody2D" parent="." unique_id=561473335]
+[node name="LowerPipe" type="Area2D" parent="." unique_id=809452879]
 position = Vector2(0, 550)
 scale = Vector2(4, 4)
 
@@ -40,3 +40,7 @@ shape = SubResource("RectangleShape2D_ws3sl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=1710348562]
 position = Vector2(45.5, 0)
 shape = SubResource("RectangleShape2D_uhra5")
+
+[connection signal="body_entered" from="UpperPipe" to="." method="_on_upper_pipe_player_entered"]
+[connection signal="body_entered" from="LowerPipe" to="." method="_on_lower_pipe_player_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_player_entered"]
