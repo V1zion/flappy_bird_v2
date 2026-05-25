@@ -10,7 +10,7 @@ size = Vector2(1920, 216)
 [node name="Background" type="Sprite2D" parent="." unique_id=1112029302]
 texture = ExtResource("1_167pb")
 
-[node name="Ground" type="StaticBody2D" parent="." unique_id=2041197214]
+[node name="Ground" type="Area2D" parent="." unique_id=338159865]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1763441597]
 position = Vector2(0, 432)
