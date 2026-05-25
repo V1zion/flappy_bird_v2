@@ -15,24 +15,24 @@ size = Vector2(27, 430)
 [node name="pipes" type="Node2D" unique_id=1783413979 groups=["pipes"]]
 script = ExtResource("1_7ktcp")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=259803908]
-position = Vector2(0, -500)
+[node name="UpperPipe" type="StaticBody2D" parent="." unique_id=259803908]
+position = Vector2(0, -550)
 scale = Vector2(4, 4)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=106346694]
+[node name="Sprite2D" type="Sprite2D" parent="UpperPipe" unique_id=106346694]
 texture = ExtResource("1_uhra5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1638316066]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperPipe" unique_id=1638316066]
 shape = SubResource("RectangleShape2D_7ktcp")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=561473335]
-position = Vector2(0, 500)
+[node name="LowerPipe" type="StaticBody2D" parent="." unique_id=561473335]
+position = Vector2(0, 550)
 scale = Vector2(4, 4)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1641726194]
+[node name="Sprite2D" type="Sprite2D" parent="LowerPipe" unique_id=1641726194]
 texture = ExtResource("1_uhra5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1472123270]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerPipe" unique_id=1472123270]
 shape = SubResource("RectangleShape2D_ws3sl")
 
 [node name="ScoreArea" type="Area2D" parent="." unique_id=1493778339]
