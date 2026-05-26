@@ -14,28 +14,27 @@ const pipe_gap_decrement : int = 5
 
 func _ready() -> void:
 	reset()
-	Global.player_scored.connect(increase_score)
+	Global.player_scored.connect(update_score)
 	Global.player_died.connect(process_death)
 
 func reset():
-	Global.game_running = false
-	Global.is_dead = false
+	Global.current_game_state = Global.State.GAME_OVER
 	upper_gap_range = max_pipe_gap_size
 	lower_gap_range = max_pipe_gap_size / 2
 	player.reset()
-	score = 0
-	score_label.text = "SCORE " + str(score)
+	update_score(0)
 	get_tree().call_group("pipes", "delete")
 
 func _process(delta: float) -> void:
 	# Tjek om spil skal startes
-	if Input.is_action_just_pressed("jump") and Global.game_running == false:
+	print(Global.current_game_state)
+	if Input.is_action_just_pressed("jump") and Global.current_game_state == Global.State.PLAYING:
 		reset()
-		Global.game_running = true
+		Global.current_game_state = Global.State.PLAYING
 		pipe_spawner.start()
 		
 	# Tjek om spil skal restartes
-	if Input.is_action_just_pressed("jump") and Global.is_dead == true:
+	if Input.is_action_just_pressed("jump") and Global.current_game_state == Global.State.GAME_OVER:
 		reset()
 
 # Genererer pipes
@@ -57,10 +56,9 @@ func _on_pipe_spawner_timeout() -> void:
 	add_child(pipe_instance)
 
 func process_death() -> void:
-	Global.game_running = false
-	Global.is_dead = true
+	Global.current_game_state = Global.State.GAME_OVER
 	pipe_spawner.stop()
 
-func increase_score() -> void:
-	score += 1
+func update_score(amount : int) -> void:
+	score += amount
 	score_label.text = "SCORE " + str(score)

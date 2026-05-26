@@ -1,11 +1,29 @@
 extends Node
 
+@export var hud : CanvasLayer
+@export var pause_menu : CanvasLayer
+@export var start_menu : CanvasLayer
+@export var restart_screen : CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	Global.state_changed.connect(_on_state_changed)
+	_on_state_changed(Global.current_game_state)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_state_changed(state):
+	match state:
+		Global.State.PLAYING:
+			hud.visible = true
+			pause_menu.visible = false
+			start_menu.visible = false
+		Global.State.PAUSED:
+			hud.hide()
+			pause_menu.hide()
+			start_menu.hide()
+		Global.State.MAIN_MENU:
+			hud.hide()
+			pause_menu.hide()
+			start_menu.hide()
+		Global.State.GAME_OVER:
+			hud.visible = false
+			restart_screen.visible = true

@@ -12,6 +12,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() == false:
 		velocity.y = JUMP_VELOCITY
 	
-	if Global.game_running == true:
+	if Global.current_game_state == Global.State.PLAYING:
 		move_and_slide()
 		
