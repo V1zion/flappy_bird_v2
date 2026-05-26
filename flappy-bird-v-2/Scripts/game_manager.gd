@@ -14,6 +14,8 @@ const pipe_gap_decrement : int = 5
 
 func _ready() -> void:
 	reset()
+	Global.player_scored.connect(increase_score)
+	Global.player_died.connect(process_death)
 
 func reset():
 	Global.game_running = false
@@ -52,8 +54,6 @@ func _on_pipe_spawner_timeout() -> void:
 	else: 
 		lower_gap_range -= pipe_gap_decrement
 	# Connect signaler fra collision med funktioner
-	Global.player_scored.connect(increase_score)
-	Global.player_died.connect(process_death)
 	add_child(pipe_instance)
 
 func process_death() -> void:

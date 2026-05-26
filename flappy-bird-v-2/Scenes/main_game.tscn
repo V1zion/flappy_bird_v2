@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dqucsoklf3epi" path="res://Scenes/classic_level.tscn" id="1_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://Scenes/player.tscn" id="2_0e3vx"]
 [ext_resource type="Script" uid="uid://dkpcf4m74q05b" path="res://Scripts/game_manager.gd" id="3_6j5ir"]
+[ext_resource type="Script" uid="uid://dxxa4ysvm3fn" path="res://Scenes/ui_manager.gd" id="5_mgc0q"]
 
 [node name="MainGame" type="Node" unique_id=1678402600]
 
@@ -30,6 +31,9 @@ script = ExtResource("1_l756w")
 
 [node name="PipeSpawner" type="Timer" parent="Systems" unique_id=1964214172]
 wait_time = 1.5
+
+[node name="UIManager" type="Node" parent="Systems" unique_id=1062449982]
+script = ExtResource("5_mgc0q")
 
 [node name="HudCanvasLayer" type="CanvasLayer" parent="." unique_id=669520620]
 offset = Vector2(0, 40)
