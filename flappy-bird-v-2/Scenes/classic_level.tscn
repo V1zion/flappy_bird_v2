@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dqucsoklf3epi"]
 
 [ext_resource type="Texture2D" uid="uid://cqbe5axgmh2k" path="res://Assets/flappyBackground2.png" id="1_167pb"]
+[ext_resource type="Script" uid="uid://buka350scktk1" path="res://Scenes/ground.gd" id="2_njvkn"]
+[ext_resource type="Script" uid="uid://76yr13va5d50" path="res://Scenes/sky.gd" id="3_0l2m0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_167pb"]
 size = Vector2(1920, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njvkn"]
+size = Vector2(1919.5, 66)
 
 [node name="ClassicLevel" type="Node2D" unique_id=1635082428]
 
@@ -11,7 +16,18 @@ size = Vector2(1920, 216)
 texture = ExtResource("1_167pb")
 
 [node name="Ground" type="Area2D" parent="." unique_id=338159865]
+script = ExtResource("2_njvkn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1763441597]
 position = Vector2(0, 432)
 shape = SubResource("RectangleShape2D_167pb")
+
+[node name="Sky" type="Area2D" parent="." unique_id=112271429]
+script = ExtResource("3_0l2m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky" unique_id=969018736]
+position = Vector2(-1, -619)
+shape = SubResource("RectangleShape2D_njvkn")
+
+[connection signal="body_entered" from="Ground" to="Ground" method="_on_player_entered"]
+[connection signal="body_entered" from="Sky" to="Sky" method="_on_body_entered"]

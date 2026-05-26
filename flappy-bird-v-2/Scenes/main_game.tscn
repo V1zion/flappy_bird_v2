@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dqucsoklf3epi" path="res://Scenes/classic_level.tscn" id="1_pu3va"]
 [ext_resource type="PackedScene" uid="uid://dijfum4w2pa4p" path="res://Scenes/player.tscn" id="2_0e3vx"]
 [ext_resource type="Script" uid="uid://dkpcf4m74q05b" path="res://Scripts/game_manager.gd" id="3_6j5ir"]
-[ext_resource type="Script" uid="uid://caa0slgdmtehf" path="res://Scenes/hud.gd" id="5_mgc0q"]
 
 [node name="MainGame" type="Node" unique_id=1678402600]
 
@@ -35,7 +34,6 @@ wait_time = 1.5
 [node name="HudCanvasLayer" type="CanvasLayer" parent="." unique_id=669520620]
 offset = Vector2(0, 40)
 transform = Transform2D(1, 0, 0, 1, 0, 40)
-script = ExtResource("5_mgc0q")
 
 [node name="HudRoot" type="Control" parent="HudCanvasLayer" unique_id=826687648]
 layout_mode = 3
@@ -63,5 +61,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Systems/PipeSpawner" to="Systems/GameManager" method="_on_pipe_spawner_timeout"]

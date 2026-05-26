@@ -8,7 +8,8 @@ var score : int = 0
 var pipe_scene = preload("res://Scenes/pipes.tscn")
 const max_pipe_gap_size : int = 100
 const min_pipe_gap_size : int = -100
-var current_pipe_gap_size : int
+var upper_gap_range : int
+var lower_gap_range : int
 const pipe_gap_decrement : int = 5
 
 func _ready() -> void:
@@ -17,7 +18,8 @@ func _ready() -> void:
 func reset():
 	Global.game_running = false
 	Global.is_dead = false
-	current_pipe_gap_size = max_pipe_gap_size
+	upper_gap_range = max_pipe_gap_size
+	lower_gap_range = max_pipe_gap_size / 2
 	player.reset()
 	score = 0
 	score_label.text = "SCORE " + str(score)
@@ -39,22 +41,26 @@ func _on_pipe_spawner_timeout() -> void:
 	var pipe_instance = pipe_scene.instantiate()
 	# Bestem pipe position og gap size
 	pipe_instance.position = Vector2(1500, randi_range(-400, 200))
-	pipe_instance.get_child(0).position.y -= randi_range(min_pipe_gap_size, current_pipe_gap_size)
-	pipe_instance.get_child(1).position.y += randi_range(min_pipe_gap_size, current_pipe_gap_size)
-	if current_pipe_gap_size <= min_pipe_gap_size:
-		current_pipe_gap_size = min_pipe_gap_size
+	pipe_instance.get_child(0).position.y -= randi_range(lower_gap_range, upper_gap_range)
+	pipe_instance.get_child(1).position.y += randi_range(lower_gap_range, upper_gap_range)
+	if upper_gap_range <= min_pipe_gap_size:
+		upper_gap_range = min_pipe_gap_size
 	else: 
-		current_pipe_gap_size -= pipe_gap_decrement
+		upper_gap_range -= pipe_gap_decrement
+	if lower_gap_range <= min_pipe_gap_size:
+		lower_gap_range = min_pipe_gap_size
+	else: 
+		lower_gap_range -= pipe_gap_decrement
 	# Connect signaler fra collision med funktioner
-	pipe_instance.player_scored.connect(increase_score)
-	pipe_instance.player_died.connect(process_death)
+	Global.player_scored.connect(increase_score)
+	Global.player_died.connect(process_death)
 	add_child(pipe_instance)
-	
+
 func process_death() -> void:
 	Global.game_running = false
 	Global.is_dead = true
 	pipe_spawner.stop()
-	
+
 func increase_score() -> void:
 	score += 1
 	score_label.text = "SCORE " + str(score)

@@ -21,9 +21,8 @@ func delete():
 
 # Tjekker for collisions med player
 func _on_score_area_player_entered(body: Node2D) -> void:
-	player_scored.emit()
-
+	Global.player_scored.emit()
 func _on_lower_pipe_player_entered(body: Node2D) -> void:
-	player_died.emit()
+	Global.player_died.emit()
 func _on_upper_pipe_player_entered(body: Node2D) -> void:
-	player_died.emit()
+	Global.player_died.emit()
