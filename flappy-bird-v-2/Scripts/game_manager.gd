@@ -25,6 +25,7 @@ func reset():
 	upper_gap_range = max_pipe_gap_size
 	lower_gap_range = max_pipe_gap_size / 2
 	player.reset()
+	score = 0
 	update_score(0)
 	get_tree().call_group("pipes", "delete")
 
