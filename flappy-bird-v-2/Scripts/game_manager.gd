@@ -18,7 +18,7 @@ func _ready() -> void:
 	Global.player_died.connect(process_death)
 
 func reset():
-	Global.current_game_state = Global.State.GAME_OVER
+	Global.current_game_state = Global.State.AWAITING_PLAY
 	upper_gap_range = max_pipe_gap_size
 	lower_gap_range = max_pipe_gap_size / 2
 	player.reset()
@@ -28,9 +28,9 @@ func reset():
 func _process(delta: float) -> void:
 	# Tjek om spil skal startes
 	print(Global.current_game_state)
-	if Input.is_action_just_pressed("jump") and Global.current_game_state == Global.State.PLAYING:
+	if Input.is_action_just_pressed("jump") and Global.current_game_state == Global.State.AWAITING_PLAY:
 		reset()
-		Global.current_game_state = Global.State.PLAYING
+		Global.current_game_state = Global.State.PLAYING 
 		pipe_spawner.start()
 		
 	# Tjek om spil skal restartes
