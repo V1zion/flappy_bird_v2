@@ -1,4 +1,4 @@
 extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
-	Global.player_died.emit()
+	Global.current_game_state = Global.State.GAME_OVER

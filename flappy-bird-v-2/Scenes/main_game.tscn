@@ -54,7 +54,7 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="HudCanvasLayer/HudRoot" unique_id=1011010948]
+[node name="Score" type="Label" parent="HudCanvasLayer/HudRoot" unique_id=1011010948]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -113,14 +113,14 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 visible = false
 
-[node name="MenuRoot" type="Control" parent="RestartCanvasLayer" unique_id=1074526094]
+[node name="RestartRoot" type="Control" parent="RestartCanvasLayer" unique_id=1074526094]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="RestartCanvasLayer/MenuRoot" unique_id=2009997390]
+[node name="Label4" type="Label" parent="RestartCanvasLayer/RestartRoot" unique_id=2009997390]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
